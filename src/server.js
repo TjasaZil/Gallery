@@ -1,7 +1,9 @@
 const express =require('express');
 const app=express();
 const port=3000;
-const imageCache=require('../data/images.js');
+const imageCache=require('../api/images.js');
+const cors = require('cors');
+app.use(cors());
 
 /** this is a function that will help simulate delay  -> this is because the endpoint should sleep for 1-4 seconds before returning the result*/
 let sleep=(ms)=>{
@@ -23,7 +25,11 @@ const imageId=parseInt(req.params.imageId);
 const processTime=Math.floor((Math.random()*3)+1); /** why 3 + 1 and not *4? Because Math.random can be 0, which means the server will return the results imediately and we want a 1 - 4 second delay. That is why we add +1 */
 await sleep(processTime * 1000); /** add random number to the delay function */
 const imageDetails=imageCache.get(imageId);
-res.json(imageDetails);
+if (imageDetails) {
+  res.json(imageDetails);
+} else {
+  res.status(404).send('Image not found');
+}
 })
 
 app.listen(port, ()=>{

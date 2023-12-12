@@ -10,38 +10,28 @@ img {
   display: block;
   max-width: 100%;
 }
-/*menu:not(article menu),
-ol:not(article ol),
-ul:not(article ul) {
-    list-style: none;
+#image_gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-menu,
-ol,
-ul {
-    padding-left: 0;
+.image-container {
+  position: relative;
+  margin: 5px;
 }
-article ol,
-article ul {
-    list-style-position: inside;
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Default overlay color */
+  color: white;
+  width: 100%;
+  transition: background 0.5s ease;
+  opacity: 0;
 }
-html {
-  -webkit-text-size-adjust: none; 
-  text-size-adjust: none; 
-}
-:focus:not(:focus-visible) {
-  outline: none;
-}
-label,
-button,
-select,
-summary,
-[type=radio],
-[type=submit],
-[type=checkbox] {
-    cursor: pointer;
+.image-container:hover .overlay {
+  opacity: 1;
 }
 
-}*/
 @media (prefers-reduced-motion: no-preference) {
   html {
         scroll-behavior: smooth;
