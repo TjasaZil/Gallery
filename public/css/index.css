@@ -42,7 +42,8 @@ img {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
-  box-sizing: border-box;
+  font-size: larger;
+  text-align: left;
 }
 
 .overlay {
@@ -52,13 +53,8 @@ img {
   right: 0;
   bottom: 0;
   transition: background-color 0.5s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   opacity: 0;
-  color: white;
   font-size: larger;
-  text-align: center;
 }
 
 .image-container:hover .overlay {

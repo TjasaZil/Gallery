@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error parsing JSON:", e);
         return;
       }
-      ids.forEach((id) => listImageIDs(id));
+      ids.forEach((id) => loadImageDetails(id));
     } else {
       console.error("Request failed with status:", this.status);
     }
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   xhr.send();
 
-  function listImageIDs(id) {
+  function loadImageDetails(id) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", `http://localhost:3000/api/image/${id}`, true);
 
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.error("Error parsing JSON:", e);
           return;
         }
-        getImageData(data);
+        displayImage(data);
       } else {
         console.error("Request failed with status:", this.status);
       }
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     xhr.send();
   }
-  function getImageData(data) {
+  function displayImage(data) {
     const container = document.createElement("div");
     container.className = "image-container";
     container.innerHTML = `
