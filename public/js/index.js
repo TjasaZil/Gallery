@@ -53,8 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
     container.className = "image-container";
     container.innerHTML = `
       <img src="${data.imageSrc}" alt="${data.title}">
-      <div class="overlay" style="background-color: ${data.overlayColor}">${data.title}</div>
-  `;
+      <div class="caption">${data.title}</div>
+      <div class="overlay" style="background-color: ${data.overlayColor};"></div>
+    `;
     document.getElementById("image_gallery").appendChild(container);
   }
 });
